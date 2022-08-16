@@ -24,9 +24,9 @@ class Solution
             for(auto it : adj[u]){
                 int v=it[0];
                 int wt=it[1];
-                if(visited[v]==false){
+                //if(visited[v]==false){
                     pq.push({wt,v});
-                }
+                //}
             }
         }
         return ans;
