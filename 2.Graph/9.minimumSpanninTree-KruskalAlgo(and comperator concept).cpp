@@ -1,3 +1,19 @@
+/*
+// comperator concept
+#include <bits/stdc++.h>
+using namespace std;
+bool static comp(int a, int b){  //it sort in increasing order
+    return a<b;
+}
+int main() {
+	vector<int> v(3);
+	v[0]=12;
+	v[1]=8;
+	v[2]=9;
+	sort(v.begin(),v.end(),comp);
+	for(auto it:v)cout<<it<<" ";
+	return 0;
+}*/
 //{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
@@ -44,7 +60,7 @@ class Solution
                 edges.push_back(node(i,it[0],it[1]));//(node,adjnode,weight)
             }
         }
-        sort(edges.begin(),edges.end(),comp);//sort based on wt in descending order
+        sort(edges.begin(),edges.end(),comp);//sort based on wt in increasing order
         vector<int> parent(V),rank(V,0);
         int cost=0;
         for(int i=0;i<V;i++) parent[i]=i;//initially mark all nodes itself as a parent 
