@@ -1,12 +1,12 @@
 
-The word "Trie" is an excerpt from the word "retrieval".
+/*The word "Trie" is an excerpt from the word "retrieval".
 
 Trie, which is also known as “Prefix Trees”, is a tree-like data structure which proves to be quite efficient for solving problems related to strings.
 It provides fast retrieval, and is mostly used for searching words in a dictionary, providing auto suggestions in a search engine, and even for IP routing.
 
 It's implemented using Tree. Trie is a data structure which is very efficient for searching word . However, it has one very big disadvantage of using a lot 
 of memory as every node contains character array of alphabet size. It marks down the ending of word by assigning it as leaf node.
-Searching a word in trie has complexity of O(n) ,where n is the length of a word searched. Time as well as space complexity can be reduced by using Compressed Trie.
+Searching a word in trie has complexity of O(n) ,where n is the length of a word searched. Time as well as space complexity can be reduced by using Compressed Trie.*/
 
 //{ Driver Code Starts
 // Initial function template for C++
