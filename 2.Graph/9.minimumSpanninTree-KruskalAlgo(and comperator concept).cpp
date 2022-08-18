@@ -13,7 +13,9 @@ int main() {
 	sort(v.begin(),v.end(),comp);
 	for(auto it:v)cout<<it<<" ";
 	return 0;
-}*/
+}
+Op: 8 9 12
+*/
 //{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
