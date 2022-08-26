@@ -1,0 +1,252 @@
+Qus1. What is class and object? and how many access specifier in class?
+Ans:
+ Class:- is a user defined datatype which holds its datamember and member function in another word we can say class is a 
+         collection of data member and member function. which can accessed and use by creating object of that class.
+         A C++ class is like a blueprint for an object. 
+
+ Object:- An object is an instance of class. whenever class is defined no memory is allocated but when when object is 
+          initialized memory is allocated of that class.
+
+ Their are three types of access specifier in clas:-
+ 1.Private
+ 2.Public
+ 3.Protected
+
+ Declaration of class:
+ Syntex:
+ class class_name{
+   private:
+     data member
+     member function
+   public:
+     data member
+     member function
+   protected:
+     data member
+     member function
+ };    //every class always ends with ;
+ Example:
+ class demo{
+   private:
+     int a,b;
+   public:
+     void input(){
+       cout<<"Enter values";
+       cin>>a>>b;
+     }
+     void show(){
+       cout<<a<<" "<<b;
+     }
+ };
+void main(){
+   demo ob;
+   ob.input();
+   ob.show();
+   getch();
+}
+
+Declaration of object:
+ class_name ob1,ob2...;
+
+Accessing Data Members of a class:-
+class Geeks
+{
+	// Access specifier
+	public:
+
+	// Data Members
+	string geekname;
+
+	// Member Functions()
+	void printname()
+	{
+	cout << "Geekname is: " << geekname;
+	}
+};
+
+int main() {
+
+	// Declare an object of class geeks
+	Geeks obj1;
+
+	// accessing data member
+	obj1.geekname = "Abhi";
+
+	// accessing member function
+	obj1.printname();
+	return 0;
+}
+output: Geekname is: Abhi
+ 
+Member Functions in Classes:-
+There are 2 ways to define a member function:-
+
+1.Inside class definition
+2.Outside class definition-To define a member function outside the class definition we have to use the scope resolution :: operator along with class name and function 
+name.
+// C++ program to demonstrate function
+// declaration outside class
+
+#include <bits/stdc++.h>
+using namespace std;
+class Geeks
+{
+	public:
+	string geekname;
+	int id;
+	
+	// printname is not defined inside class definition
+	void printname();
+	
+	// printid is defined inside class definition
+	void printid()
+	{
+		cout << "Geek id is: " << id;
+	}
+};
+
+// Definition of printname using scope resolution operator ::
+void Geeks::printname()
+{
+	cout << "Geekname is: " << geekname;
+}
+int main() {
+	
+	Geeks obj1;
+	obj1.geekname = "xyz";
+	obj1.id=15;
+	
+	// call printname()
+	obj1.printname();
+	cout << endl;
+	
+	// call printid()
+	obj1.printid();
+	return 0;
+}
+output:Geekname is: xyz
+Geek id is: 15
+
+Qus2: What is constructor?
+Ans:
+1. constructor is a special type of function which has the same name as the class anme.
+2. constructor is being automatically call at the time of object declartion or creation
+3. Constructors don’t have return type is used for initializing the objects
+4. It must be placed in public section of class.
+5. If we do not specify a constructor, C++ compiler generates a default constructor for object (expects no parameters and has an empty body).
+6. Constructors can be defined inside or outside the class declaration
+   using scope resolution student::student()
+Types of Constructors:-
+1. Default Constructors: Default constructor is the constructor which doesn’t take any argument. It has no parameters. 
+                         It is also called a zero-argument constructor.
+// Cpp program to illustrate the
+// concept of Constructors
+#include <iostream>
+using namespace std;
+
+class construct {
+public:
+	int a, b;
+
+	// Default Constructor
+	construct()
+	{
+		a = 10;
+		b = 20;
+	}
+};
+
+int main()
+{
+	// Default constructor called automatically
+	// when the object is created
+	construct c;
+	cout << "a: " << c.a << endl << "b: " << c.b;
+	return 1;
+}
+a: 10
+b: 20
+2.Parameterized Constructors: It is possible to pass arguments to constructors. Typically, these arguments help initialize an object when it is created.
+Note: when the parameterized constructor is defined and no default constructor is defined explicitly, the compiler will not implicitly call the default constructor 
+and hence creating a simple object as
+
+Student s;
+Will flash an error
+
+// CPP program to illustrate
+// parameterized constructors
+#include <iostream>
+using namespace std;
+
+class Point {
+private:
+	int x, y;
+
+public:
+	// Parameterized Constructor
+	Point(int x1, int y1)
+	{
+		x = x1;
+		y = y1;
+	}
+
+	int getX() { return x; }
+	int getY() { return y; }
+};
+
+int main()
+{
+	// Constructor called
+	Point p1(10, 15);
+
+	// Access values assigned by constructor
+	cout << "p1.x = " << p1.getX()
+		<< ", p1.y = " << p1.getY();
+
+	return 0;
+}
+p1.x = 10, p1.y = 15
+3.copy constructor:
+ a constructor that is used to copy or initialize the value of one object into snothe robject of same slass is called copy constructoe.
+ Copy constructor takes a reference to an object of the same class as an argument.
+
+          Sample(Sample &t)
+          {
+                     id=t.id;
+          }
+// Example: Explicit copy constructor
+
+#include <iostream>
+using namespace std;
+
+class Sample
+{
+	int id;
+	public:
+	void init(int x)
+	{
+		id=x;
+	}
+	Sample(){} //default constructor with empty body
+	
+	Sample(Sample &t) //copy constructor
+	{
+		id=t.id;
+	}
+	void display()
+	{
+		cout<<endl<<"ID="<<id;
+	}
+};
+int main()
+{
+	Sample obj1;
+	obj1.init(10);
+	obj1.display();
+	
+	Sample obj2(obj1); //or obj2=obj1; copy constructor called
+	obj2.display();
+	return 0;
+}
+ID=10
+ID=10
