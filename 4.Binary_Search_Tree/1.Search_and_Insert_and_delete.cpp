@@ -4,7 +4,8 @@ bool search(struct Node* root, int x) {
     else if(root->data<x)search(root->right,x);
     else search(root->left,x);
 }
-
+Given a BST and a key K. If K is not present in the BST, Insert a new Node with a value equal to K into the BST. 
+Note: If K is already present in the BST, don't modify the BST.
 Node* insert(Node* root, int key) {
     // Your code here
     //if(search(root,key))return root;
