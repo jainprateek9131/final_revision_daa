@@ -23,3 +23,15 @@ Node* insert(Node* root, int key) {
     else parent->left=new Node(key);
     return root;
 }
+//recursion
+Node* insert(Node* root, int key) {
+    if(root==NULL){
+        Node* t = new Node(key);
+        return t;
+    }else if(root->data<key){
+        root->right=insert(root->right,key);
+    }
+    else if(root->data>key){
+        root->left=insert(root->left,key);
+    }else return root;
+}
