@@ -33,7 +33,7 @@ struct Node {
 void floorCeilBSTHelper(Node* root, int key, int& floor, int& ceil)
 {
 
-	while (root) {
+	while (root!=NULL) {
 
 		if (root->data == key) {
 			ceil = root->data;
