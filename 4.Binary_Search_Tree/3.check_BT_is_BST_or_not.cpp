@@ -73,5 +73,50 @@ ex:           50
     }
    };
 soln 3: the maximum value in left subtree is smaller then node and mimum value in right subtree is greater then node
-
-  
+int maxInLeft(Node* root){
+        //int max(left,right, root) int bt
+        Node* maxE = root;
+        if(maxE==NULL)return INT_MIN;
+        while(root->right!=NULL){
+            maxE = maxE->right;
+            root=maxE;
+        }
+        return maxE->data;
+    }
+    int maxInRight(Node* root){
+        Node* minE = root;
+        if(minE==NULL)return INT_MAX;
+        while(root->left!=NULL){
+            minE = minE->left;
+            root=minE;
+        }
+        return minE->data;
+    }
+    bool isBST(Node* root) 
+    {
+        if(root==NULL)return true;
+        int left = maxInLeft(root->left);
+        int right = maxInRight(root->right);
+        if((root->data > left) and (root->data < right) and
+           isBST(root->left) and isBST(root->right))return true;
+        else return false;
+    }
+  final sol: we set limit for each ide like
+   (-inf,+inf)           50 (-inf,+inf) value of  this node can lie between                           
+   (-inf,+inf)        /     \        
+  (-inf,+50)        30      70     
+   (-inf,+inf)         \    /  \                      
+     ( 30,+50)         40  60   80  
+    (-inf,+inf)        / \    /  \   
+    (-inf,+inf)      32    /  \   
+    bool helper(Node* root, int min, int max){
+        if(root==NULL)return true;
+        if(root->data > min and root->data < max and
+           helper(root->left, min , root->data) and
+           helper(root->right, root->data , max))return true;
+        return false;
+    }
+    bool isBST(Node* root) 
+    {
+        return helper(root,INT_MIN,INT_MAX);
+    }
