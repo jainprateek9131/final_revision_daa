@@ -94,7 +94,10 @@ memset(array,0,M*N*sizeof (int));
      else
      return t[n][W]=knapSack(W,wt,val,n-1);
    }
-
+or
+	Solution(){
+        memset(v,-1,sizeof(v));
+    }make constructor
 
 //bottom up approch
 int Knapsack(int wt[], int val[], int W, int n) {
